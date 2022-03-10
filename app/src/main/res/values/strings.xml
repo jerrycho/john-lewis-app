@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">john-lewis</string>
+    <string name="retry">Retry</string>
+    <string name="time_out_error">Timeout, please try later</string>
+    <string name="unknown_host_error">Please check your network connection</string>
+    <string name="invalid_product">Invalid Product</string>
+
+    <string name="product_information">Product Information</string>
+    <string name="product_code">Product Code: </string>
+    <string name="product_specification">Product Specification</string>
+    <string name="read_more">Read more</string>
+
+    <string name="dishwashers">Dishwashers</string>
+
+</resources>

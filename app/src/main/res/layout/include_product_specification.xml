@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/product_detail_paragraph_space"
+    android:id="@+id/vProductSpecification">
+
+    <View
+        android:id="@+id/vProductSpecificationTopLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_marginTop="@dimen/product_detail_paragraph_space"
+        android:id="@+id/tvProductSpecificationTitle"
+        style="@style/ProductDetail.Title"
+        android:text="@string/product_specification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/vProductSpecificationTopLine"  />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/product_detail_paragraph_space"
+        android:id="@+id/llSpecifications"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvProductSpecificationTitle" >
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

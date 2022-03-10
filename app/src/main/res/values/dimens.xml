@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="grid_padding_left_right">15dp</dimen>
+    <dimen name="grid_padding_top">15dp</dimen>
+    <dimen name="grid_padding_bottom">20dp</dimen>
+
+    <dimen name="grid_image_height">200dp</dimen>
+
+    <dimen name="default_line_space">8dp</dimen>
+
+    <dimen name="product_detail_paragraph_space">20dp</dimen>
+</resources>
