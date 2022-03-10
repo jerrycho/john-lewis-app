@@ -40,23 +40,24 @@ class ProductListModelTest {
     }
 
     @Test
-    fun `test with get detail page ok`() = runBlockingTest {
+    fun `test with get list page ok`() = runBlockingTest {
         launch {
-            whenever(mockProductApi.getProductDetail("1")).thenReturn(getProduct())
+            whenever(mockProductApi.getProductList("q", BuildConfig.KEY)).thenReturn(getProductListResponse())
             val mNetworkRepository = NetworkRepository(mockProductApi)
-            val mockViewModel = ProductDetailViewModel(mNetworkRepository)
-            mockViewModel.productViewState.test {
+            val mockViewModel = ProductListViewModel(mNetworkRepository)
+            mockViewModel.productListViewState.test {
                 Assert.assertEquals(ViewState.Initial, awaitItem())
                 Assert.assertEquals(ViewState.Loading, awaitItem())
 
                 Assert.assertEquals(
-                    ViewState.Success(getProduct()),
+                    ViewState.Success(getProductListResponse()),
                     awaitItem()
                 )
                 awaitComplete()
             }
-            mockViewModel.getProduct("1")
+            mockViewModel.getProductList("q")
         }
     }
+
 
 }

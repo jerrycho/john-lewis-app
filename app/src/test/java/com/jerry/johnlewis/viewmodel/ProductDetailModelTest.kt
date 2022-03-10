@@ -6,7 +6,9 @@ import com.jerry.johnlewis.base.ViewState
 import com.jerry.johnlewis.model.ProductListResponse
 import com.jerry.johnlewis.network.ProductApi
 import com.jerry.johnlewis.repository.NetworkRepository
+import com.jerry.johnlewis.ui.product.viewmodel.ProductDetailViewModel
 import com.jerry.johnlewis.ui.product.viewmodel.ProductListViewModel
+import getProduct
 import getProductListResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -38,22 +40,22 @@ class ProductDetailModelTest {
     }
 
     @Test
-    fun `test with get list page ok`() = runBlockingTest {
+    fun `test with get detail page ok`() = runBlockingTest {
         launch {
-            whenever(mockProductApi.getProductList("q", BuildConfig.KEY)).thenReturn(getProductListResponse())
+            whenever(mockProductApi.getProductDetail("1")).thenReturn(getProduct())
             val mNetworkRepository = NetworkRepository(mockProductApi)
-            val mockViewModel = ProductListViewModel(mNetworkRepository)
-            mockViewModel.productListViewState.test {
+            val mockViewModel = ProductDetailViewModel(mNetworkRepository)
+            mockViewModel.productViewState.test {
                 Assert.assertEquals(ViewState.Initial, awaitItem())
                 Assert.assertEquals(ViewState.Loading, awaitItem())
 
                 Assert.assertEquals(
-                    ViewState.Success(getProductListResponse()),
+                    ViewState.Success(getProduct()),
                     awaitItem()
                 )
                 awaitComplete()
             }
-            mockViewModel.getProductList("q")
+            mockViewModel.getProduct("1")
         }
     }
 
